@@ -7,6 +7,6 @@
 using namespace std;
 
 int main(){
-    cout<<'Cryptnod';
+    cout<<"Amonbit The New Revolutions of Blockchain"<<endl;
     return 0;
 }

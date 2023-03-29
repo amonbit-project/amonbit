@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/antlion/Projects/amonbit/build",
+  "command": "/usr/bin/clang++   -g -o CMakeFiles/amonbit.dir/src/main.cpp.o -c /home/antlion/Projects/amonbit/src/main.cpp",
+  "file": "/home/antlion/Projects/amonbit/src/main.cpp"
+}
+]
