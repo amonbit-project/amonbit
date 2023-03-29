@@ -12,16 +12,26 @@ CXXFLAGS = -o
 BUILD = amonbit
 PLARTFORM = linux
 
-all: final
+all: release-all
 
-final: main.o
-	gcc main.o
+cmake-release:
+	mkdir -p $(builddir)/release
+	cd $(builddir)/release && cmake -D CMAKE_BUILD_TYPE=Release $(topdir)
 
-main.o: main.cpp
-	gcc $(CFLAGS) -c main.cpp
+release: cmake-release
+	cd $(builddir)/release && $(MAKE)
 
-clear:
-	@rm main.o
+release-test:
+	mkdir -p $(builddir)/release
+	cd $(builddir)/release && cmake -D BUILD_TESTS=ON -D CMAKE_BUILD_TYPE=Release $(topdir) && $(MAKE) && $(MAKE) test
+
+release-all:
+	mkdir -p $(builddir)/release
+	cd $(builddir)/release && cmake -D BUILD_TESTS=ON -D CMAKE_BUILD_TYPE=Release $(topdir) && $(MAKE)
+
+release-static:
+	mkdir -p $(builddir)/release
+	cd $(builddir)/release && cmake -D STATIC=ON -D ARCH="x86-64" -D BUILD_64=ON -D CMAKE_BUILD_TYPE=Release $(topdir) && $(MAKE)
 
 release-static-linux-armv6:
 	mkdir -p $(builddir)/release
@@ -80,3 +90,6 @@ clean-all:
 	read -r -p "This will destroy all build directories, continue (y/N)?: " CONTINUE; \
 	[ $$CONTINUE = "y" ] || [ $$CONTINUE = "Y" ] || (echo "Exiting."; exit 1;)
 	rm -rf ./build
+
+tags:
+	ctags -R --sort=1 --language-force=C++ src
