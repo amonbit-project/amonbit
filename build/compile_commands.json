@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/antlion/Projects/build",
-  "command": "/usr/bin/clang++   -g -o CMakeFiles/amonbit.dir/main.cpp.o -c /home/antlion/Projects/main.cpp",
-  "file": "/home/antlion/Projects/main.cpp"
-}
-]
