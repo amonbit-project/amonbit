@@ -2,12 +2,7 @@
 #
 # All rights reserved.
 
-CVERSION =
 CFLAGS = -Wno-implicit-function-declaration
-
-CXXVERSION =
-CXXFLAGS = -o
-
 
 BUILD = amonbit
 PLARTFORM = linux
