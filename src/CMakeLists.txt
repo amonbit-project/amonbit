@@ -54,7 +54,7 @@ include(Version)
 amonbit_add_library(version SOURCES ${CMAKE_BINARY_DIR}/version.cpp DEPENDS genversion)
 
 add_subdirectory(common)
-add_subdirectory(cli)
+add_subdirectory(forum)
 add_subdirectory(crypto)
 add_subdirectory(ringct)
 add_subdirectory(checkpoints)
