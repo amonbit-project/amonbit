@@ -29,3 +29,45 @@
 #CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR 
 #OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
 #SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+cmake_minimum_required(VERSION 3.5)
+
+project(easylogging CXX)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+amonbit_enable_coverage()
+
+find_package(Threads)
+find_package(Backtrace)
+
+amonbit_find_all_headers(EASYLOGGING_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}")
+
+add_library(easylogging
+  easylogging++.cc
+  ${EASYLOGGING_HEADERS}
+  )
+
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
+include_directories("${CMAKE_CURRENT_BINARY_DIR}")
+target_link_libraries(easylogging
+  PRIVATE
+    ${CMAKE_THREAD_LIBS_INIT}
+    ${Backtrace_LIBRARIES})
+
+# GUI/libwallet install target
+if (BUILD_GUI_DEPS)
+    if(IOS)
+        set(lib_folder lib-${ARCH})
+    else()
+        set(lib_folder lib)
+    endif()
+    install(TARGETS easylogging
+        ARCHIVE DESTINATION ${lib_folder}
+        LIBRARY DESTINATION ${lib_folder})
+endif()
+set_property(TARGET easylogging APPEND PROPERTY COMPILE_FLAGS "-fPIC")
+
