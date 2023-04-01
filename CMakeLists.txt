@@ -30,15 +30,9 @@
 #OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
 #SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+cmake_minimum_required(VERSION 3.25.1)
+message(STATUS "CMake version ${CMAKE_VERSION}")
 
-cmake_minimum_required(VERSION 3.0.0)
-project(amonbit VERSION 0.1.0)
+project(amonbit)
 
-include(CTest)
-enable_testing()
-
-add_executable(${PROJECT_NAME} src/main.cpp)
-
-set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-include(CPack)
+add_executable(amonbit src/main.cpp)
