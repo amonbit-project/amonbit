@@ -16,18 +16,20 @@
 
 // 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
 
-#include <string>
-#include <iostream>
-#include <google/protobuf/message.h>
-#include <google/protobuf/unknown_field_set.h>
-#include "test-protobuf.pb.h"
+#include "table.h"
 
-int main(int argc, char *argv[]) {
-  google::protobuf::UnknownFieldSet ufs;
-  ufs.ClearAndFreeMemory();
+namespace lmdb
+{
+    expect<MDB_dbi> table::open(MDB_txn& write_txn) const noexcept
+    {
+        MONERO_PRECOND(name != nullptr);
 
-  Success sc;
-  sc.set_message("test");
-  sc.SerializeToOstream(&std::cerr);
-  return 0;
+        MDB_dbi out;
+        MONERO_LMDB_CHECK(mdb_dbi_open(&write_txn, name, flags, &out));
+        if (key_cmp && !(flags & MDB_INTEGERKEY))
+            MONERO_LMDB_CHECK(mdb_set_compare(&write_txn, out, key_cmp));
+        if (value_cmp && !(flags & MDB_INTEGERDUP))
+            MONERO_LMDB_CHECK(mdb_set_dupsort(&write_txn, out, value_cmp));
+        return out;
+    }
 }
