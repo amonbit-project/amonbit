@@ -5,18 +5,18 @@
 #include <string>
 #include <boost/uuid/uuid.hpp>
 
-#define CRYPTONOTE_DNS_TIMEOUT_MS                       20000
+#define CRYPTO_DNS_TIMEOUT_MS                       20000
 
-#define CRYPTONOTE_MAX_BLOCK_NUMBER                     500000000
-#define CRYPTONOTE_MAX_TX_SIZE                          1000000
-#define CRYPTONOTE_MAX_TX_PER_BLOCK                     0x10000000
-#define CRYPTONOTE_PUBLIC_ADDRESS_TEXTBLOB_VER          0
-#define CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW            60
+#define CRYPTO_MAX_BLOCK_NUMBER                     500000000
+#define CRYPTO_MAX_TX_SIZE                          1000000
+#define CRYPTO_MAX_TX_PER_BLOCK                     0x10000000
+#define CRYPTO_PUBLIC_ADDRESS_TEXTBLOB_VER          0
+#define CRYPTO_MINED_MONEY_UNLOCK_WINDOW            60
 #define CURRENT_TRANSACTION_VERSION                     2
 #define CURRENT_BLOCK_MAJOR_VERSION                     1
 #define CURRENT_BLOCK_MINOR_VERSION                     0
-#define CRYPTONOTE_BLOCK_FUTURE_TIME_LIMIT              60*60*2
-#define CRYPTONOTE_DEFAULT_TX_SPENDABLE_AGE             10
+#define CRYPTO_BLOCK_FUTURE_TIME_LIMIT              60*60*2
+#define CRYPTO_DEFAULT_TX_SPENDABLE_AGE             10
 
 #define BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW               60
 
@@ -25,14 +25,14 @@
 #define EMISSION_SPEED_FACTOR_PER_MINUTE                (20)
 #define FINAL_SUBSIDY_PER_MINUTE                        ((uint64_t)300000000000) // 3 * pow(10, 11)
 
-#define CRYPTONOTE_REWARD_BLOCKS_WINDOW                 100
-#define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2    60000 //size of block (bytes) after which reward for block calculated using block size
-#define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V1    20000 //size of block (bytes) after which reward for block calculated using block size - before first fork
-#define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V5    300000 //size of block (bytes) after which reward for block calculated using block size - second change, from v5
-#define CRYPTONOTE_LONG_TERM_BLOCK_WEIGHT_WINDOW_SIZE   100000 // size in blocks of the long term block weight median window
-#define CRYPTONOTE_SHORT_TERM_BLOCK_WEIGHT_SURGE_FACTOR 50
-#define CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE          600
-#define CRYPTONOTE_DISPLAY_DECIMAL_POINT                12
+#define CRYPTO_REWARD_BLOCKS_WINDOW                 100
+#define CRYPTO_BLOCK_GRANTED_FULL_REWARD_ZONE_V2    60000 //size of block (bytes) after which reward for block calculated using block size
+#define CRYPTO_BLOCK_GRANTED_FULL_REWARD_ZONE_V1    20000 //size of block (bytes) after which reward for block calculated using block size - before first fork
+#define CRYPTO_BLOCK_GRANTED_FULL_REWARD_ZONE_V5    300000 //size of block (bytes) after which reward for block calculated using block size - second change, from v5
+#define CRYPTO_LONG_TERM_BLOCK_WEIGHT_WINDOW_SIZE   100000 // size in blocks of the long term block weight median window
+#define CRYPTO_SHORT_TERM_BLOCK_WEIGHT_SURGE_FACTOR 50
+#define CRYPTO_COINBASE_BLOB_RESERVED_SIZE          600
+#define CRYPTO_DISPLAY_DECIMAL_POINT                12
 // COIN - number of smallest units in one coin
 #define COIN                                            ((uint64_t)1000000000000) // pow(10, 12)
 
@@ -41,7 +41,7 @@
 #define FEE_PER_BYTE                                    ((uint64_t)300000)
 #define DYNAMIC_FEE_PER_KB_BASE_FEE                     ((uint64_t)2000000000) // 2 * pow(10,9)
 #define DYNAMIC_FEE_PER_KB_BASE_BLOCK_REWARD            ((uint64_t)10000000000000) // 10 * pow(10,12)
-#define DYNAMIC_FEE_PER_KB_BASE_FEE_V5                  ((uint64_t)2000000000 * (uint64_t)CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2 / CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V5)
+#define DYNAMIC_FEE_PER_KB_BASE_FEE_V5                  ((uint64_t)2000000000 * (uint64_t)CRYPTO_BLOCK_GRANTED_FULL_REWARD_ZONE_V2 / CRYPTO_BLOCK_GRANTED_FULL_REWARD_ZONE_V5)
 #define DYNAMIC_FEE_REFERENCE_TRANSACTION_WEIGHT         ((uint64_t)3000)
 
 #define ORPHANED_BLOCKS_MAX_COUNT                       100
@@ -55,9 +55,9 @@
 #define DIFFICULTY_BLOCKS_COUNT                         DIFFICULTY_WINDOW + DIFFICULTY_LAG
 
 
-#define CRYPTONOTE_LOCKED_TX_ALLOWED_DELTA_SECONDS_V1   DIFFICULTY_TARGET_V1 * CRYPTONOTE_LOCKED_TX_ALLOWED_DELTA_BLOCKS
-#define CRYPTONOTE_LOCKED_TX_ALLOWED_DELTA_SECONDS_V2   DIFFICULTY_TARGET_V2 * CRYPTONOTE_LOCKED_TX_ALLOWED_DELTA_BLOCKS
-#define CRYPTONOTE_LOCKED_TX_ALLOWED_DELTA_BLOCKS       1
+#define CRYPTO_LOCKED_TX_ALLOWED_DELTA_SECONDS_V1   DIFFICULTY_TARGET_V1 * CRYPTO_LOCKED_TX_ALLOWED_DELTA_BLOCKS
+#define CRYPTO_LOCKED_TX_ALLOWED_DELTA_SECONDS_V2   DIFFICULTY_TARGET_V2 * CRYPTO_LOCKED_TX_ALLOWED_DELTA_BLOCKS
+#define CRYPTO_LOCKED_TX_ALLOWED_DELTA_BLOCKS       1
 
 
 #define DIFFICULTY_BLOCKS_ESTIMATE_TIMESPAN             DIFFICULTY_TARGET_V1 //just alias; used by tests
@@ -69,31 +69,31 @@
 #define BLOCKS_SYNCHRONIZING_DEFAULT_COUNT              20     //by default, blocks count in blocks downloading
 #define BLOCKS_SYNCHRONIZING_MAX_COUNT                  2048   //must be a power of 2, greater than 128, equal to SEEDHASH_EPOCH_BLOCKS
 
-#define CRYPTONOTE_MEMPOOL_TX_LIVETIME                    (86400*3) //seconds, three days
-#define CRYPTONOTE_MEMPOOL_TX_FROM_ALT_BLOCK_LIVETIME     604800 //seconds, one week
+#define CRYPTO_MEMPOOL_TX_LIVETIME                    (86400*3) //seconds, three days
+#define CRYPTO_MEMPOOL_TX_FROM_ALT_BLOCK_LIVETIME     604800 //seconds, one week
 
 
-#define CRYPTONOTE_DANDELIONPP_STEMS              2 // number of outgoing stem connections per epoch
-#define CRYPTONOTE_DANDELIONPP_FLUFF_PROBABILITY 20 // out of 100
-#define CRYPTONOTE_DANDELIONPP_MIN_EPOCH         10 // minutes
-#define CRYPTONOTE_DANDELIONPP_EPOCH_RANGE       30 // seconds
-#define CRYPTONOTE_DANDELIONPP_FLUSH_AVERAGE      5 // seconds average for poisson distributed fluff flush
-#define CRYPTONOTE_DANDELIONPP_EMBARGO_AVERAGE   39 // seconds (see tx_pool.cpp for more info)
+#define CRYPTO_DANDELIONPP_STEMS              2 // number of outgoing stem connections per epoch
+#define CRYPTO_DANDELIONPP_FLUFF_PROBABILITY 20 // out of 100
+#define CRYPTO_DANDELIONPP_MIN_EPOCH         10 // minutes
+#define CRYPTO_DANDELIONPP_EPOCH_RANGE       30 // seconds
+#define CRYPTO_DANDELIONPP_FLUSH_AVERAGE      5 // seconds average for poisson distributed fluff flush
+#define CRYPTO_DANDELIONPP_EMBARGO_AVERAGE   39 // seconds (see tx_pool.cpp for more info)
 
-// see src/cryptonote_protocol/levin_notify.cpp
-#define CRYPTONOTE_NOISE_MIN_EPOCH                      5      // minutes
-#define CRYPTONOTE_NOISE_EPOCH_RANGE                    30     // seconds
-#define CRYPTONOTE_NOISE_MIN_DELAY                      10     // seconds
-#define CRYPTONOTE_NOISE_DELAY_RANGE                    5      // seconds
-#define CRYPTONOTE_NOISE_BYTES                          3*1024 // 3 KiB
-#define CRYPTONOTE_NOISE_CHANNELS                       2      // Max outgoing connections per zone used for noise/covert sending
+// see src/crypto_protocol/levin_notify.cpp
+#define CRYPTO_NOISE_MIN_EPOCH                      5      // minutes
+#define CRYPTO_NOISE_EPOCH_RANGE                    30     // seconds
+#define CRYPTO_NOISE_MIN_DELAY                      10     // seconds
+#define CRYPTO_NOISE_DELAY_RANGE                    5      // seconds
+#define CRYPTO_NOISE_BYTES                          3*1024 // 3 KiB
+#define CRYPTO_NOISE_CHANNELS                       2      // Max outgoing connections per zone used for noise/covert sending
 
 // Both below are in seconds. The idea is to delay forwarding from i2p/tor
 // to ipv4/6, such that 2+ incoming connections _could_ have sent the tx
-#define CRYPTONOTE_FORWARD_DELAY_BASE (CRYPTONOTE_NOISE_MIN_DELAY + CRYPTONOTE_NOISE_DELAY_RANGE)
-#define CRYPTONOTE_FORWARD_DELAY_AVERAGE (CRYPTONOTE_FORWARD_DELAY_BASE + (CRYPTONOTE_FORWARD_DELAY_BASE / 2))
+#define CRYPTO_FORWARD_DELAY_BASE (CRYPTO_NOISE_MIN_DELAY + CRYPTO_NOISE_DELAY_RANGE)
+#define CRYPTO_FORWARD_DELAY_AVERAGE (CRYPTO_FORWARD_DELAY_BASE + (CRYPTO_FORWARD_DELAY_BASE / 2))
 
-#define CRYPTONOTE_MAX_FRAGMENTS                        20 // ~20 * NOISE_BYTES max payload size for covert/noise send
+#define CRYPTO_MAX_FRAGMENTS                        20 // ~20 * NOISE_BYTES max payload size for covert/noise send
 
 #define COMMAND_RPC_GET_BLOCKS_FAST_MAX_BLOCK_COUNT     1000
 #define COMMAND_RPC_GET_BLOCKS_FAST_MAX_TX_COUNT        20000
@@ -128,9 +128,9 @@
 
 #define RPC_IP_FAILS_BEFORE_BLOCK                       3
 
-#define CRYPTONOTE_NAME                         "bitmonero"
-#define CRYPTONOTE_BLOCKCHAINDATA_FILENAME      "data.mdb"
-#define CRYPTONOTE_BLOCKCHAINDATA_LOCK_FILENAME "lock.mdb"
+#define CRYPTO_NAME                         "amonbit"
+#define CRYPTO_BLOCKCHAINDATA_FILENAME      "data.mdb"
+#define CRYPTO_BLOCKCHAINDATA_LOCK_FILENAME "lock.mdb"
 #define P2P_NET_DATA_FILENAME                   "p2pstate.bin"
 #define RPC_PAYMENTS_DATA_FILENAME              "rpcpayments.bin"
 #define MINER_CONFIG_FILE_NAME                  "miner_conf.json"
@@ -160,7 +160,7 @@
 #define HF_VERSION_2021_SCALING                 15
 
 #define PER_KB_FEE_QUANTIZATION_DECIMALS        8
-#define CRYPTONOTE_SCALING_2021_FEE_ROUNDING_PLACES 2
+#define CRYPTO_SCALING_2021_FEE_ROUNDING_PLACES 2
 
 #define HASH_OF_HASHES_STEP                     512
 
@@ -169,9 +169,9 @@
 #define BULLETPROOF_MAX_OUTPUTS                 16
 #define BULLETPROOF_PLUS_MAX_OUTPUTS            16
 
-#define CRYPTONOTE_PRUNING_STRIPE_SIZE          4096 // the smaller, the smoother the increase
-#define CRYPTONOTE_PRUNING_LOG_STRIPES          3 // the higher, the more space saved
-#define CRYPTONOTE_PRUNING_TIP_BLOCKS           5500 // the smaller, the more space saved
+#define CRYPTO_PRUNING_STRIPE_SIZE          4096 // the smaller, the smoother the increase
+#define CRYPTO_PRUNING_LOG_STRIPES          3 // the higher, the more space saved
+#define CRYPTO_PRUNING_TIP_BLOCKS           5500 // the smaller, the more space saved
 
 #define RPC_CREDITS_PER_HASH_SCALE ((float)(1<<24))
 
@@ -190,9 +190,9 @@ namespace config
   uint64_t const DEFAULT_DUST_THRESHOLD = ((uint64_t)2000000000); // 2 * pow(10, 9)
   uint64_t const BASE_REWARD_CLAMP_THRESHOLD = ((uint64_t)100000000); // pow(10, 8)
 
-  uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 18;
-  uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 19;
-  uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 42;
+  uint64_t const CRYPTO_PUBLIC_ADDRESS_BASE58_PREFIX = 18;
+  uint64_t const CRYPTO_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 19;
+  uint64_t const CRYPTO_PUBLIC_SUBADDRESS_BASE58_PREFIX = 42;
   uint16_t const P2P_DEFAULT_PORT = 18080;
   uint16_t const RPC_DEFAULT_PORT = 18081;
   uint16_t const ZMQ_RPC_DEFAULT_PORT = 18082;
@@ -231,9 +231,9 @@ namespace config
 
   namespace testnet
   {
-    uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 53;
-    uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 54;
-    uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 63;
+    uint64_t const CRYPTO_PUBLIC_ADDRESS_BASE58_PREFIX = 53;
+    uint64_t const CRYPTO_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 54;
+    uint64_t const CRYPTO_PUBLIC_SUBADDRESS_BASE58_PREFIX = 63;
     uint16_t const P2P_DEFAULT_PORT = 28080;
     uint16_t const RPC_DEFAULT_PORT = 28081;
     uint16_t const ZMQ_RPC_DEFAULT_PORT = 28082;
@@ -244,11 +244,11 @@ namespace config
     uint32_t const GENESIS_NONCE = 10001;
   }
 
-  namespace stagenet
+  namespace corenet
   {
-    uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 24;
-    uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 25;
-    uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 36;
+    uint64_t const CRYPTO_PUBLIC_ADDRESS_BASE58_PREFIX = 24;
+    uint64_t const CRYPTO_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 25;
+    uint64_t const CRYPTO_PUBLIC_SUBADDRESS_BASE58_PREFIX = 36;
     uint16_t const P2P_DEFAULT_PORT = 38080;
     uint16_t const RPC_DEFAULT_PORT = 38081;
     uint16_t const ZMQ_RPC_DEFAULT_PORT = 38082;
@@ -260,21 +260,21 @@ namespace config
   }
 }
 
-namespace cryptonote
+namespace crypto
 {
   enum network_type : uint8_t
   {
     MAINNET = 0,
     TESTNET,
-    STAGENET,
-    FAKECHAIN,
+    CORENET, //STAGENET
+    BITONET, //FAKECHAIN
     UNDEFINED = 255
   };
   struct config_t
   {
-    uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX;
-    uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX;
-    uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX;
+    uint64_t const CRYPTO_PUBLIC_ADDRESS_BASE58_PREFIX;
+    uint64_t const CRYPTO_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX;
+    uint64_t const CRYPTO_PUBLIC_SUBADDRESS_BASE58_PREFIX;
     uint16_t const P2P_DEFAULT_PORT;
     uint16_t const RPC_DEFAULT_PORT;
     uint16_t const ZMQ_RPC_DEFAULT_PORT;
@@ -285,9 +285,9 @@ namespace cryptonote
   inline const config_t& get_config(network_type nettype)
   {
     static const config_t mainnet = {
-      ::config::CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX,
-      ::config::CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX,
-      ::config::CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX,
+      ::config::CRYPTO_PUBLIC_ADDRESS_BASE58_PREFIX,
+      ::config::CRYPTO_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX,
+      ::config::CRYPTO_PUBLIC_SUBADDRESS_BASE58_PREFIX,
       ::config::P2P_DEFAULT_PORT,
       ::config::RPC_DEFAULT_PORT,
       ::config::ZMQ_RPC_DEFAULT_PORT,
@@ -296,9 +296,9 @@ namespace cryptonote
       ::config::GENESIS_NONCE
     };
     static const config_t testnet = {
-      ::config::testnet::CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX,
-      ::config::testnet::CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX,
-      ::config::testnet::CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX,
+      ::config::testnet::CRYPTO_PUBLIC_ADDRESS_BASE58_PREFIX,
+      ::config::testnet::CRYPTO_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX,
+      ::config::testnet::CRYPTO_PUBLIC_SUBADDRESS_BASE58_PREFIX,
       ::config::testnet::P2P_DEFAULT_PORT,
       ::config::testnet::RPC_DEFAULT_PORT,
       ::config::testnet::ZMQ_RPC_DEFAULT_PORT,
@@ -306,23 +306,23 @@ namespace cryptonote
       ::config::testnet::GENESIS_TX,
       ::config::testnet::GENESIS_NONCE
     };
-    static const config_t stagenet = {
-      ::config::stagenet::CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX,
-      ::config::stagenet::CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX,
-      ::config::stagenet::CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX,
-      ::config::stagenet::P2P_DEFAULT_PORT,
-      ::config::stagenet::RPC_DEFAULT_PORT,
-      ::config::stagenet::ZMQ_RPC_DEFAULT_PORT,
-      ::config::stagenet::NETWORK_ID,
-      ::config::stagenet::GENESIS_TX,
-      ::config::stagenet::GENESIS_NONCE
+    static const config_t corenet = {
+      ::config::corenet::CRYPTO_PUBLIC_ADDRESS_BASE58_PREFIX,
+      ::config::corenet::CRYPTO_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX,
+      ::config::corenet::CRYPTO_PUBLIC_SUBADDRESS_BASE58_PREFIX,
+      ::config::corenet::P2P_DEFAULT_PORT,
+      ::config::corenet::RPC_DEFAULT_PORT,
+      ::config::corenet::ZMQ_RPC_DEFAULT_PORT,
+      ::config::corenet::NETWORK_ID,
+      ::config::corenet::GENESIS_TX,
+      ::config::corenet::GENESIS_NONCE
     };
     switch (nettype)
     {
       case MAINNET: return mainnet;
       case TESTNET: return testnet;
-      case STAGENET: return stagenet;
-      case FAKECHAIN: return mainnet;
+      case CORENET: return corenet;
+      case BITONET: return mainnet;
       default: throw std::runtime_error("Invalid network type");
     }
   };
