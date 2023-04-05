@@ -12,13 +12,13 @@ extern const size_t testnet_blocks_len;
 namespace blocks
 {
 
-  const std::unordered_map<cryptonote::network_type, const epee::span<const unsigned char>, std::hash<size_t>> CheckpointsByNetwork = {
-    {cryptonote::network_type::MAINNET, {checkpoints, checkpoints_len}},
-    {cryptonote::network_type::TESTNET, {testnet_blocks, testnet_blocks_len}},
-    {cryptonote::network_type::CORENET, {corenet_blocks, corenet_blocks_len}}
+  const std::unordered_map<crypto::network_type, const epee::span<const unsigned char>, std::hash<size_t>> CheckpointsByNetwork = {
+    {crypto::network_type::MAINNET, {checkpoints, checkpoints_len}},
+    {crypto::network_type::TESTNET, {testnet_blocks, testnet_blocks_len}},
+    {crypto::network_type::CORENET, {corenet_blocks, corenet_blocks_len}}
   };
 
-  const epee::span<const unsigned char> GetCheckpointsData(cryptonote::network_type network)
+  const epee::span<const unsigned char> GetCheckpointsData(crypto::network_type network)
   {
     const auto it = CheckpointsByNetwork.find(network);
     if (it != CheckpointsByNetwork.end())
