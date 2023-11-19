@@ -1,0 +1,3 @@
+C:/Users/agast/Documents/Projects/amonbit/cmake-build-debug/CMakeFiles/amonbit.dir
+C:/Users/agast/Documents/Projects/amonbit/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/agast/Documents/Projects/amonbit/cmake-build-debug/CMakeFiles/rebuild_cache.dir
